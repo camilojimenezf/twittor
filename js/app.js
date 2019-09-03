@@ -1,7 +1,13 @@
 
+var url = window.location.href;
+var swLocation = '/twittor/sw.js';  //path de la app desplegada en github
+
 if(navigator.serviceWorker){
 
-    navigator.serviceWorker.register('/sw.js');
+    if(url.includes('localhost')){
+        swLocation='/sw.js';
+    }
+    navigator.serviceWorker.register(swLocation);
 
 }
 
